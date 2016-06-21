@@ -1,0 +1,4401 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://ball_script.gd" type="Script" id=1]
+[ext_resource path="res://AmigaEmu.png" type="Texture" id=2]
+[ext_resource path="res://20points.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 15.6517
+
+[sub_resource type="ConcavePolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+segments = Vector2Array( 60, 30, 30, 30, 30, 30, 30, 560, 30, 560, 450, 560, 450, 560, 450, 30, 450, 30, 420, 30, 420, 30, 420, 530, 420, 530, 370, 530, 370, 530, 370, 480, 370, 480, 360, 460, 360, 460, 350, 480, 350, 480, 350, 530, 350, 530, 300, 530, 300, 530, 300, 480, 300, 480, 290, 460, 290, 460, 280, 480, 280, 480, 280, 530, 280, 530, 230, 530, 230, 530, 230, 480, 230, 480, 220, 460, 220, 460, 210, 480, 210, 480, 210, 530, 210, 530, 160, 530, 160, 530, 160, 480, 160, 480, 150, 460, 150, 460, 140, 480, 140, 480, 140, 530, 140, 530, 60, 530, 60, 530, 60, 30 )
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 4.83351
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23.028, 19.5325 )
+
+[node name="game" type="Node2D"]
+
+transform/pos = Vector2( 0, 165 )
+
+[node name="ball" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 190, -120 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 38.0
+friction = 0.5
+bounce = 0.0
+gravity_scale = 5.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="ball"]
+
+transform/pos = Vector2( 0.123786, 0.0385487 )
+transform/scale = Vector2( 0.614436, 0.615734 )
+texture = ExtResource( 2 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Camera2D" type="Camera2D" parent="ball"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = 0
+limit/right = 0
+limit/bottom = 1280
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="box" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 15, -52 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, -0, 0, 2, 0, 10 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true, "_editor_collapsed":true }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box"]
+
+transform/pos = Vector2( 0, 10 )
+transform/scale = Vector2( 1, 2 )
+build_mode = 1
+polygon = Vector2Array( 60, 30, 30, 30, 30, 560, 450, 560, 450, 30, 420, 30, 420, 530, 370, 530, 370, 480, 360, 460, 350, 480, 350, 530, 300, 530, 300, 480, 290, 460, 280, 480, 280, 530, 230, 530, 230, 480, 220, 460, 210, 480, 210, 530, 160, 530, 160, 480, 150, 460, 140, 480, 140, 530, 60, 530 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Polygon2D" type="Polygon2D" parent="box"]
+
+transform/pos = Vector2( -0.531052, -11.6353 )
+transform/scale = Vector2( 1, 2.03509 )
+polygon = Vector2Array( 60.5311, 30.6311, 30.5311, 30.6311, 30.5311, 560.631, 450.531, 560.631, 450.531, 30.6311, 420.531, 30.6311, 420.531, 530.631, 370.531, 530.631, 370.531, 480.631, 360.531, 460.631, 350.531, 480.631, 350.531, 530.631, 300.531, 530.631, 300.531, 480.631, 290.531, 460.631, 280.531, 480.631, 280.531, 530.631, 230.531, 530.631, 230.531, 480.631, 220.531, 460.631, 210.531, 480.631, 210.531, 530.631, 160.531, 530.631, 160.531, 480.631, 150.531, 460.631, 140.531, 480.631, 140.531, 530.631, 60.5311, 530.631 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pins" type="Node2D" parent="."]
+
+transform/pos = Vector2( 15, -65 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="pin" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 209.811, 253.74 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin1" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 257, 192 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin1"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin1"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin2" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 137, 192 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin2"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin2"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin3" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 227, 147 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin3"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin3"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin4" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 182, 132 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin4"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin4"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin5" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 270.331, 122.973 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin5"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin5"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin6" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 272, 162 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin6"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin6"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin7" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 136.862, 110.545 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin7"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin7"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin8" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 107, 192 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin8"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin8"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin9" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 152, 147 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin9"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin9"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin10" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 133.62, 262.385 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin10"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin10"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin11" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 167, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin11"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin11"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin12" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 227, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin12"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin12"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin13" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 302, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin13"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin13"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin14" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 272, 72 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin14"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin14"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin15" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 302.212, 171.605 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin15"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin15"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin16" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 279.517, 198.083 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin16"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin16"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin17" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 347, 117 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin17"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin17"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin18" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 235.748, 216.455 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin18"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin18"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin19" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 297.349, 264.006 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin19"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin19"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin20" type="RigidBody2D" parent="pins"]
+
+transform/pos = Vector2( 297.349, 264.006 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins/pin20"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins/pin20"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pins1" type="Node2D" parent="."]
+
+transform/pos = Vector2( 60, 85 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="pin" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 212, 162 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin1" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 270.872, 173.226 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin1"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin1"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin2" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 173.607, 215.374 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin2"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin2"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin3" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 77, 252 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin3"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin3"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin4" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 173.607, 150.531 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin4"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin4"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin5" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 270.331, 122.973 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin5"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin5"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin6" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 302, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin6"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin6"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin7" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 137, 72 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin7"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin7"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin8" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 123.353, 162.419 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin8"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin8"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin9" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 95.2548, 194.3 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin9"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin9"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin10" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 130, 238 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin10"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin10"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin11" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 167, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin11"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin11"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin12" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 212, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin12"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin12"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin13" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 266.549, 91.0916 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin13"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin13"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin14" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 302, 57 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin14"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin14"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin15" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 302.212, 171.605 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin15"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin15"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin16" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 279.517, 198.083 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin16"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin16"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin17" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 302, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin17"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin17"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin18" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 235.748, 216.455 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin18"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin18"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin19" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 297.349, 264.006 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin19"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin19"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin20" type="RigidBody2D" parent="pins1"]
+
+transform/pos = Vector2( 272, 237 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins1/pin20"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins1/pin20"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pins2" type="Node2D" parent="."]
+
+transform/pos = Vector2( 4.99999, 400 )
+transform/rot = 9.84222
+__meta__ = { "_editor_collapsed":true }
+
+[node name="pin" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 212, 162 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin1" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 270.872, 173.226 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin1"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin1"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin2" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 173.607, 215.374 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin2"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin2"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin3" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 77, 252 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin3"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin3"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin4" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 173.607, 150.531 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin4"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin4"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin5" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 270.331, 122.973 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin5"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin5"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin6" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 302, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin6"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin6"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin7" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 137, 72 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin7"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin7"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin8" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 123.353, 162.419 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin8"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin8"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin9" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 95.2548, 194.3 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin9"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin9"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin10" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 130, 238 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin10"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin10"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin11" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 167, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin11"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin11"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin12" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 212, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin12"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin12"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin13" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 266.549, 91.0916 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin13"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin13"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin14" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 302, 57 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin14"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin14"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin15" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 302.212, 171.605 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin15"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin15"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin16" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 279.517, 198.083 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin16"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin16"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin17" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 302, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin17"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin17"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin18" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 235.748, 216.455 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin18"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin18"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin19" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 297.349, 264.006 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin19"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin19"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin20" type="RigidBody2D" parent="pins2"]
+
+transform/pos = Vector2( 272, 237 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins2/pin20"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins2/pin20"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pins3" type="Node2D" parent="."]
+
+transform/pos = Vector2( 65, 595 )
+transform/rot = 9.84222
+__meta__ = { "_editor_collapsed":true }
+
+[node name="pin" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 212, 162 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin1" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 270.872, 173.226 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin1"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin1"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin2" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 173.607, 215.374 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin2"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin2"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin3" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 77, 252 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin3"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin3"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin4" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 173.607, 150.531 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin4"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin4"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin5" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 270.331, 122.973 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin5"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin5"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin6" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 302, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin6"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin6"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin7" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 137, 72 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin7"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin7"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin8" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 123.353, 162.419 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin8"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin8"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin9" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 95.2548, 194.3 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin9"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin9"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin10" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 130, 238 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin10"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin10"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin11" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 167, 27 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin11"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin11"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin12" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 212, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin12"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin12"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin13" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 266.549, 91.0916 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin13"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin13"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin14" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 302, 57 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin14"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin14"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin15" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 302.212, 171.605 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin15"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin15"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin16" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 279.517, 198.083 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin16"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin16"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin17" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 302, 102 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin17"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin17"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin18" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 235.748, 216.455 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin18"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin18"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin19" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 297.349, 264.006 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin19"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin19"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="pin20" type="RigidBody2D" parent="pins3"]
+
+transform/pos = Vector2( 272, 237 )
+transform/scale = Vector2( 0.6875, 0.6875 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.891609, -0, 0, 0.891609, -21.7727, 21.7727 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pins3/pin20"]
+
+transform/pos = Vector2( -21.7727, 21.7727 )
+transform/scale = Vector2( 0.891609, 0.891609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pins3/pin20"]
+
+transform/pos = Vector2( -21.7783, 21.7105 )
+transform/scale = Vector2( 0.322543, 0.324801 )
+polygon = Vector2Array( 0, -10, -10, 0, 0, 10, 10, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="scoring" type="Node2D" parent="."]
+
+transform/pos = Vector2( 111.5, 998.5 )
+transform/scale = Vector2( 1.67188, 1.20312 )
+
+[node name="20 points" type="Area2D" parent="scoring"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 1.79439, -5.81818 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 3 )
+
+[node name="20points" type="CollisionShape2D" parent="scoring/20 points"]
+
+transform/pos = Vector2( 1.79439, -5.81818 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Label" type="Label" parent="scoring/20 points"]
+
+margin/left = -40.0
+margin/top = 68.0
+margin/bottom = 81.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "Score:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="body_enter" from="scoring/20 points" to="scoring/20 points" method="_on_20_points_body_enter"]
+
+
