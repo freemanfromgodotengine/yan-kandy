@@ -6,12 +6,12 @@ extends RigidBody2D
 # var b="textvar"
 
 var released = false
-var speed = 200
+var speed = 3
 var ballpos = ""
 
 func _fixed_process(delta):
 	randomize()
-	var random_friction = randf()*0.4+0.1
+	var random_friction = randf()*0.3+0.05
 	var random_bounce = randf()*0.4+0.09
 
 	self.set_friction(random_friction)
@@ -23,17 +23,17 @@ func _fixed_process(delta):
 	
 		if Input.is_action_pressed("ui_left"):
 			print(direction)
-			direction += Vector2(-1,0)
+			direction += speed * Vector2(-1,0)
 
 		if Input.is_action_pressed("ui_right"):
 			print(direction)
-			direction += Vector2(1,0)
+			direction += speed * Vector2(1,0)
 	
 	if Input.is_action_pressed("ui_down") and released == false:
 			print("Release!")
 			released = true
-			set_mass(48)
-			set_gravity_scale(7)
+			set_mass(80)
+			set_gravity_scale(6)
 			direction += Vector2(0,0.01)
 	
 	if Input.is_action_pressed("ui_select"):
