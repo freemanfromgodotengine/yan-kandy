@@ -11,14 +11,14 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 15.6517
+radius = 14.9444
 
-[sub_resource type="ConcavePolygonShape2D" id=5]
+[sub_resource type="ConcavePolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 546, -15, 546, 495, 546, 495, 546, 496.426, 36.0593, 496.426, 36.0593, 465, 111, 465, 111, 466.174, 534.016, 466.174, 534.016, 399.745, 536.021, 399.745, 536.021, 381.833, 480.957, 381.833, 480.957, 363.92, 481.953, 363.92, 481.953, 369.891, 533.036, 369.891, 533.036, 347.558, 536.072, 347.558, 536.072, 324.169, 534.08, 324.169, 534.08, 317.481, 499.865, 317.481, 499.865, 304.876, 481.289, 304.876, 481.289, 296.251, 483.611, 296.251, 483.611, 300.779, 528.811, 300.779, 528.811, 247.822, 530.714, 247.822, 530.714, 245.831, 508.821, 245.831, 508.821, 255.783, 504.841, 255.783, 504.841, 270.378, 496.216, 270.378, 496.216, 271.041, 483.943, 271.041, 483.943, 263.744, 474.655, 263.744, 474.655, 253.792, 475.65, 253.792, 475.65, 255.783, 483.943, 255.783, 483.943, 253.129, 489.914, 253.129, 489.914, 246.253, 495.526, 246.253, 495.526, 229.909, 498.206, 229.909, 498.206, 217.304, 495.884, 217.304, 495.884, 210.007, 483.943, 210.007, 483.943, 213.987, 475.65, 213.987, 475.65, 204.699, 473.992, 204.699, 473.992, 193.421, 483.279, 193.421, 483.279, 195.411, 491.904, 195.411, 491.904, 210.335, 505.503, 210.335, 505.503, 210.67, 531.046, 210.67, 531.046, 180, 531, 180, 531, 180, 516, 180, 516, 180, 486, 180, 486, 165, 486, 165, 486, 150, 508.5, 150, 508.5, 150.126, 536.715, 150.126, 536.715, 126.736, 538.578, 126.736, 538.578, 105.275, 537.164, 105.275, 537.164, 105, 486, 105, 486, 105, 486, 105, 486, 94.3951, 486.014, 94.3951, 486.014, 75, 501, 75, 501, 75, 538.5, 75, 538.5, 45.064, 539.906, 45.064, 539.906, 15, 538.5, 15, 538.5, 15, 103.5 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 23.028, 19.5325 )
@@ -94,8 +94,8 @@ __meta__ = { "_edit_lock_":true }
 transform/pos = Vector2( 15, -52 )
 z/z = -1
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, -0, 0, 2, 0, -185 )
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 2, 0, -185 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -114,7 +114,7 @@ velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-__meta__ = { "_edit_group_":true, "_edit_lock_":true }
+__meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
 
 [node name="TextureFrame" type="TextureFrame" parent="box"]
 
@@ -374,7 +374,7 @@ transform/scale = Vector2( 1.67188, 1.20312 )
 [node name="20 points" type="Area2D" parent="scoring"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.79439, -5.81818 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -387,7 +387,7 @@ __meta__ = { "_editor_collapsed":true }
 [node name="20points" type="CollisionShape2D" parent="scoring/20 points"]
 
 transform/pos = Vector2( 1.79439, -5.81818 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -406,8 +406,7 @@ max_lines_visible = -1
 
 [node name="yan_head" type="Node2D" parent="."]
 
-visibility/visible = false
-transform/pos = Vector2( 252.124, -42.9615 )
+transform/pos = Vector2( 432.124, -72.9615 )
 transform/scale = Vector2( 0.614436, 0.615734 )
 z/z = 1
 __meta__ = { "_editor_collapsed":true }
@@ -431,6 +430,20 @@ transform/pos = Vector2( 64.0153, 53.5946 )
 z/z = 1
 z/relative = false
 texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+
+margin/left = 17.0
+margin/top = -156.0
+margin/right = 212.0
+margin/bottom = -117.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "ARROW keys left/right - Move ball\nARROW down - release ball\nSPACE - reset ball"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="body_enter" from="scoring/20 points" to="scoring/20 points" method="_on_20_points_body_enter"]
 
