@@ -5,7 +5,7 @@ extends Area2D
 # var a=2
 # var b="textvar"
 
-var score = ""
+var score = 0
 
 func _ready():
 	
@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_20_points_body_enter( body ):
-	if score == "":
+	if score == 0:
 		print("20 points")
 		score = 20
 		get_node("Label").set_text(str(score))
