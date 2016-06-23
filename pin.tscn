@@ -12,7 +12,7 @@ height = 2.10391
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/pinsound = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/pinsound = { "db":0.02, "pitch":0.8, "sample":ExtResource( 3 ) }
 
 [node name="pin" type="RigidBody2D"]
 
@@ -31,7 +31,7 @@ bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 1
+contacts_reported = 3
 contact_monitor = true
 sleeping = false
 can_sleep = true
