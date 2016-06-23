@@ -10,6 +10,7 @@ var speed = 3
 var ballpos = ""
 
 func _fixed_process(delta):
+	
 	randomize()
 	var random_friction = randf()*0.3+0.05
 	var random_bounce = randf()*0.4+0.09

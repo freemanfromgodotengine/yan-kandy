@@ -1,22 +1,28 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://ball_script.gd" type="Script" id=1]
 [ext_resource path="res://sprite_candyball.png" type="Texture" id=2]
-[ext_resource path="res://wooden-box-bg.png" type="Texture" id=3]
-[ext_resource path="res://pin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://20points.gd" type="Script" id=5]
-[ext_resource path="res://sprite_yan_head.png" type="Texture" id=6]
-[ext_resource path="res://sprite_yan_jaw.png" type="Texture" id=7]
+[ext_resource path="res://box.gd" type="Script" id=3]
+[ext_resource path="res://wooden-box-bg.png" type="Texture" id=4]
+[ext_resource path="res://thunk.wav" type="Sample" id=5]
+[ext_resource path="res://pin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://20points.gd" type="Script" id=7]
+[ext_resource path="res://sprite_yan_head.png" type="Texture" id=8]
+[ext_resource path="res://sprite_yan_jaw.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 14.9444
 
-[sub_resource type="ConcavePolygonShape2D" id=2]
+[sub_resource type="ConcavePolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 546, -15, 546, 495, 546, 495, 546, 496.426, 36.0593, 496.426, 36.0593, 465, 111, 465, 111, 466.174, 534.016, 466.174, 534.016, 399.745, 536.021, 399.745, 536.021, 381.833, 480.957, 381.833, 480.957, 363.92, 481.953, 363.92, 481.953, 369.891, 533.036, 369.891, 533.036, 347.558, 536.072, 347.558, 536.072, 324.169, 534.08, 324.169, 534.08, 317.481, 499.865, 317.481, 499.865, 304.876, 481.289, 304.876, 481.289, 296.251, 483.611, 296.251, 483.611, 300.779, 528.811, 300.779, 528.811, 247.822, 530.714, 247.822, 530.714, 245.831, 508.821, 245.831, 508.821, 255.783, 504.841, 255.783, 504.841, 270.378, 496.216, 270.378, 496.216, 271.041, 483.943, 271.041, 483.943, 263.744, 474.655, 263.744, 474.655, 253.792, 475.65, 253.792, 475.65, 255.783, 483.943, 255.783, 483.943, 253.129, 489.914, 253.129, 489.914, 246.253, 495.526, 246.253, 495.526, 229.909, 498.206, 229.909, 498.206, 217.304, 495.884, 217.304, 495.884, 210.007, 483.943, 210.007, 483.943, 213.987, 475.65, 213.987, 475.65, 204.699, 473.992, 204.699, 473.992, 193.421, 483.279, 193.421, 483.279, 195.411, 491.904, 195.411, 491.904, 210.335, 505.503, 210.335, 505.503, 210.67, 531.046, 210.67, 531.046, 180, 531, 180, 531, 180, 516, 180, 516, 180, 486, 180, 486, 165, 486, 165, 486, 150, 508.5, 150, 508.5, 150.126, 536.715, 150.126, 536.715, 126.736, 538.578, 126.736, 538.578, 105.275, 537.164, 105.275, 537.164, 105, 486, 105, 486, 105, 486, 105, 486, 94.3951, 486.014, 94.3951, 486.014, 75, 501, 75, 501, 75, 538.5, 75, 538.5, 45.064, 539.906, 45.064, 539.906, 15, 538.5, 15, 538.5, 15, 103.5 )
+segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 546, -15, 546, 495, 546, 495, 546, 496.426, 36.0593, 496.426, 36.0593, 465, 111, 465, 111, 465, 538.5, 465, 538.5, 405, 538.5, 405, 538.5, 381.833, 480.957, 381.833, 480.957, 363.92, 481.953, 363.92, 481.953, 375, 538.5, 375, 538.5, 330, 538.5, 330, 538.5, 317.481, 499.865, 317.481, 499.865, 304.876, 481.289, 304.876, 481.289, 296.251, 483.611, 296.251, 483.611, 300.779, 528.811, 300.779, 528.811, 247.822, 530.714, 247.822, 530.714, 245.831, 508.821, 245.831, 508.821, 255.783, 504.841, 255.783, 504.841, 270.378, 496.216, 270.378, 496.216, 271.041, 483.943, 271.041, 483.943, 263.744, 474.655, 263.744, 474.655, 253.792, 475.65, 253.792, 475.65, 255.783, 483.943, 255.783, 483.943, 255, 493.5, 255, 493.5, 210, 493.5, 210, 493.5, 210.007, 483.943, 210.007, 483.943, 213.987, 475.65, 213.987, 475.65, 204.699, 473.992, 204.699, 473.992, 193.421, 483.279, 193.421, 483.279, 195.411, 491.904, 195.411, 491.904, 210.335, 505.503, 210.335, 505.503, 210.67, 531.046, 210.67, 531.046, 180, 531, 180, 531, 180, 516, 180, 516, 180, 478.5, 180, 478.5, 165, 486, 165, 486, 150, 508.5, 150, 508.5, 150, 538.5, 150, 538.5, 105, 538.5, 105, 538.5, 105, 486, 105, 486, 75, 501, 75, 501, 75, 538.5, 75, 538.5, 45, 538.5, 45, 538.5, 15, 538.5, 15, 538.5, 15, 103.5 )
+
+[sub_resource type="SampleLibrary" id=4]
+
+samples/thunk = { "db":0.0, "pitch":1.5, "sample":ExtResource( 5 ) }
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -32,7 +38,7 @@ transform/pos = Vector2( 0, 165 )
 transform/pos = Vector2( 242, -118 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, -0, 0, 1, 1, 1.99999 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1, 1.99999 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -94,27 +100,28 @@ __meta__ = { "_edit_lock_":true }
 transform/pos = Vector2( 15, -52 )
 z/z = -1
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 2, 0, -185 )
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, -0, 0, 2, 0, -185 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-mode = 1
+mode = 3
 mass = 1.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 3
+contact_monitor = true
 sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-__meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
+script/script = ExtResource( 3 )
+__meta__ = { "_edit_group_":true, "_edit_lock_":true }
 
 [node name="TextureFrame" type="TextureFrame" parent="box"]
 
@@ -126,7 +133,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box"]
@@ -135,234 +142,248 @@ visibility/opacity = 0.502013
 transform/pos = Vector2( 0, -185 )
 transform/scale = Vector2( 1, 2 )
 build_mode = 1
-polygon = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15, 546, 495, 546, 496.426, 36.0593, 465, 111, 466.174, 534.016, 399.745, 536.021, 381.833, 480.957, 363.92, 481.953, 369.891, 533.036, 347.558, 536.072, 324.169, 534.08, 317.481, 499.865, 304.876, 481.289, 296.251, 483.611, 300.779, 528.811, 247.822, 530.714, 245.831, 508.821, 255.783, 504.841, 270.378, 496.216, 271.041, 483.943, 263.744, 474.655, 253.792, 475.65, 255.783, 483.943, 253.129, 489.914, 246.253, 495.526, 229.909, 498.206, 217.304, 495.884, 210.007, 483.943, 213.987, 475.65, 204.699, 473.992, 193.421, 483.279, 195.411, 491.904, 210.335, 505.503, 210.67, 531.046, 180, 531, 180, 516, 180, 486, 165, 486, 150, 508.5, 150.126, 536.715, 126.736, 538.578, 105.275, 537.164, 105, 486, 105, 486, 94.3951, 486.014, 75, 501, 75, 538.5, 45.064, 539.906, 15, 538.5 )
+polygon = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15, 546, 495, 546, 496.426, 36.0593, 465, 111, 465, 538.5, 405, 538.5, 381.833, 480.957, 363.92, 481.953, 375, 538.5, 330, 538.5, 317.481, 499.865, 304.876, 481.289, 296.251, 483.611, 300.779, 528.811, 247.822, 530.714, 245.831, 508.821, 255.783, 504.841, 270.378, 496.216, 271.041, 483.943, 263.744, 474.655, 253.792, 475.65, 255.783, 483.943, 255, 493.5, 210, 493.5, 210.007, 483.943, 213.987, 475.65, 204.699, 473.992, 193.421, 483.279, 195.411, 491.904, 210.335, 505.503, 210.67, 531.046, 180, 531, 180, 516, 180, 478.5, 165, 486, 150, 508.5, 150, 538.5, 105, 538.5, 105, 486, 75, 501, 75, 538.5, 45, 538.5, 15, 538.5 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+
+[node name="sfx" type="SamplePlayer2D" parent="box"]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 10
+config/samples = SubResource( 4 )
+config/pitch_random = -0.01
 
 [node name="pins" type="Node2D" parent="."]
 
 transform/pos = Vector2( 15, -65 )
-__meta__ = { "_editor_collapsed":true }
 
-[node name="pin" parent="pins" instance=ExtResource( 4 )]
+[node name="pin" parent="pins" instance=ExtResource( 6 )]
 
-[node name="pin1" parent="pins" instance=ExtResource( 4 )]
+[node name="sfx" parent="pins/pin"]
+
+config/pitch_random = -0.05
+
+[node name="pin1" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 262, 282 )
 
-[node name="pin2" parent="pins" instance=ExtResource( 4 )]
+[node name="pin2" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 367, 282 )
 
-[node name="pin3" parent="pins" instance=ExtResource( 4 )]
+[node name="pin3" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 307, 372 )
 
-[node name="pin4" parent="pins" instance=ExtResource( 4 )]
+[node name="pin4" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 202, 372 )
 
-[node name="pin5" parent="pins" instance=ExtResource( 4 )]
+[node name="pin5" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 142, 477 )
 
-[node name="pin6" parent="pins" instance=ExtResource( 4 )]
+[node name="pin6" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 262, 477 )
 
-[node name="pin7" parent="pins" instance=ExtResource( 4 )]
+[node name="pin7" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 397, 477 )
 
-[node name="pin8" parent="pins" instance=ExtResource( 4 )]
+[node name="pin8" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 322, 567 )
 
-[node name="pin9" parent="pins" instance=ExtResource( 4 )]
+[node name="pin9" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 202, 567 )
 
-[node name="pin10" parent="pins" instance=ExtResource( 4 )]
+[node name="pin10" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 127, 672 )
 
-[node name="pin11" parent="pins" instance=ExtResource( 4 )]
+[node name="pin11" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 262, 657 )
 
-[node name="pin12" parent="pins" instance=ExtResource( 4 )]
+[node name="pin12" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 382, 672 )
 
-[node name="pin13" parent="pins" instance=ExtResource( 4 )]
+[node name="pin13" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 382, 672 )
 
-[node name="pin14" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 143.4, 343.4 )
 
-[node name="pin14 2" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 2" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 263.4, 343.4 )
 
-[node name="pin14 3" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 3" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 398.4, 343.4 )
 
-[node name="pin14 4" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 4" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 323.4, 433.4 )
 
-[node name="pin14 5" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 5" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 203.4, 433.4 )
 
-[node name="pin14 6" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 6" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 128.4, 538.4 )
 
-[node name="pin14 7" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 7" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 383.4, 538.4 )
 
-[node name="pin14 8" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 8" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 383.4, 538.4 )
 
-[node name="pin14 9" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 9" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 263.4, 523.4 )
 
-[node name="pin14 10" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 10" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 143.4, 148.4 )
 
-[node name="pin14 11" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 11" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 263.4, 148.4 )
 
-[node name="pin14 12" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 12" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 368.4, 148.4 )
 
-[node name="pin14 13" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 13" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 308.4, 238.4 )
 
-[node name="pin14 14" parent="pins" instance=ExtResource( 4 )]
+[node name="pin14 14" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 203.4, 238.4 )
 
-[node name="pin1414" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1414" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 324.8, 148.4 )
 
-[node name="pin1413" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1413" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 384.8, 58.4 )
 
-[node name="pin1415" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1415" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 219.8, 148.4 )
 
-[node name="pin1412" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1412" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 279.8, 58.4 )
 
-[node name="pin149" parent="pins" instance=ExtResource( 4 )]
+[node name="pin149" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 399.8, 448.4 )
 
-[node name="pin1410" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1410" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 279.8, 433.4 )
 
-[node name="pin1411" parent="pins" instance=ExtResource( 4 )]
+[node name="pin1411" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 159.8, 58.4 )
 
-[node name="pin145" parent="pins" instance=ExtResource( 4 )]
+[node name="pin145" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 339.8, 343.4 )
 
-[node name="pin144" parent="pins" instance=ExtResource( 4 )]
+[node name="pin144" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 414.8, 253.4 )
 
-[node name="pin146" parent="pins" instance=ExtResource( 4 )]
+[node name="pin146" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 219.8, 343.4 )
 
-[node name="pin147" parent="pins" instance=ExtResource( 4 )]
+[node name="pin147" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 144.8, 448.4 )
 
-[node name="pin148" parent="pins" instance=ExtResource( 4 )]
+[node name="pin148" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 399.8, 448.4 )
 
-[node name="pin143" parent="pins" instance=ExtResource( 4 )]
+[node name="pin143" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 279.8, 253.4 )
 
-[node name="pin15" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 159.8, 253.4 )
 
-[node name="pin15 2" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 2" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 158.4, 387 )
 
-[node name="pin15 3" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 3" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 278.4, 387 )
 
-[node name="pin15 4" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 4" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 413.4, 387 )
 
-[node name="pin15 5" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 5" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 338.4, 477 )
 
-[node name="pin15 6" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 6" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 218.4, 477 )
 
-[node name="pin15 7" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 7" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 143.4, 582 )
 
-[node name="pin15 8" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 8" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 398.4, 582 )
 
-[node name="pin15 9" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 9" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 398.4, 582 )
 
-[node name="pin15 10" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 10" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 278.4, 567 )
 
-[node name="pin15 11" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 11" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 158.4, 192 )
 
-[node name="pin15 12" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 12" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 278.4, 192 )
 
-[node name="pin15 13" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 13" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 383.4, 192 )
 
-[node name="pin15 14" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 14" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 323.4, 282 )
 
-[node name="pin15 15" parent="pins" instance=ExtResource( 4 )]
+[node name="pin15 15" parent="pins" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 218.4, 282 )
 
@@ -381,7 +402,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 5 )
+script/script = ExtResource( 7 )
 __meta__ = { "_editor_collapsed":true }
 
 [node name="20points" type="CollisionShape2D" parent="scoring/20 points"]
@@ -422,14 +443,14 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="tex_yan_jaw" type="Sprite" parent="yan_head/tex_yan_head"]
 
 transform/pos = Vector2( 64.0153, 53.5946 )
 z/z = 1
 z/relative = false
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="."]
 
@@ -445,6 +466,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[connection signal="body_enter" from="box" to="box" method="_on_box_body_enter"]
+
 [connection signal="body_enter" from="scoring/20 points" to="scoring/20 points" method="_on_20_points_body_enter"]
 
 
+[editable path="pins/pin"]
