@@ -155,13 +155,15 @@ params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 10
 config/samples = SubResource( 4 )
-config/pitch_random = -0.01
+config/pitch_random = -0.02
 
 [node name="pins" type="Node2D" parent="."]
 
 transform/pos = Vector2( 15, -65 )
 
 [node name="pin" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 156.2, 296.2 )
 
 [node name="sfx" parent="pins/pin"]
 
@@ -173,15 +175,15 @@ transform/pos = Vector2( 262, 282 )
 
 [node name="pin2" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 367, 282 )
+transform/pos = Vector2( 126.2, 326.2 )
 
 [node name="pin3" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 307, 372 )
+transform/pos = Vector2( 276.2, 401.2 )
 
 [node name="pin4" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 202, 372 )
+transform/pos = Vector2( 231.2, 371.2 )
 
 [node name="pin5" parent="pins" instance=ExtResource( 6 )]
 
@@ -189,203 +191,203 @@ transform/pos = Vector2( 142, 477 )
 
 [node name="pin6" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 262, 477 )
+transform/pos = Vector2( 186.2, 521.2 )
 
 [node name="pin7" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 397, 477 )
+transform/pos = Vector2( 276.2, 521.2 )
 
 [node name="pin8" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 322, 567 )
+transform/pos = Vector2( 186.2, 596.2 )
 
 [node name="pin9" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 202, 567 )
+transform/pos = Vector2( 171.2, 596.2 )
 
 [node name="pin10" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 127, 672 )
+transform/pos = Vector2( 111.2, 686.2 )
 
 [node name="pin11" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 262, 657 )
+transform/pos = Vector2( 231.2, 686.2 )
 
 [node name="pin12" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 382, 672 )
+transform/pos = Vector2( 351.2, 686.2 )
 
 [node name="pin13" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 382, 672 )
+transform/pos = Vector2( 291.2, 686.2 )
 
 [node name="pin14" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 143.4, 343.4 )
+transform/pos = Vector2( 171.2, 386.2 )
 
 [node name="pin14 2" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 263.4, 343.4 )
+transform/pos = Vector2( 261.2, 416.2 )
 
 [node name="pin14 3" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 398.4, 343.4 )
+transform/pos = Vector2( 336.2, 326.2 )
 
 [node name="pin14 4" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 323.4, 433.4 )
+transform/pos = Vector2( 336.2, 476.2 )
 
 [node name="pin14 5" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 203.4, 433.4 )
+transform/pos = Vector2( 201.2, 416.2 )
 
 [node name="pin14 6" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 128.4, 538.4 )
+transform/pos = Vector2( 381.2, 641.2 )
 
 [node name="pin14 7" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 383.4, 538.4 )
+transform/pos = Vector2( 291.2, 596.2 )
 
 [node name="pin14 8" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 383.4, 538.4 )
+transform/pos = Vector2( 81.2, 641.2 )
 
 [node name="pin14 9" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 263.4, 523.4 )
+transform/pos = Vector2( 201.2, 641.2 )
 
 [node name="pin14 10" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 143.4, 148.4 )
+transform/pos = Vector2( 111.2, 236.2 )
 
 [node name="pin14 11" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 263.4, 148.4 )
+transform/pos = Vector2( 246.2, 191.2 )
 
 [node name="pin14 12" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 368.4, 148.4 )
+transform/pos = Vector2( 366.2, 236.2 )
 
 [node name="pin14 13" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 308.4, 238.4 )
+transform/pos = Vector2( 306.2, 296.2 )
 
 [node name="pin14 14" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 203.4, 238.4 )
+transform/pos = Vector2( 201.2, 281.2 )
 
 [node name="pin1414" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 324.8, 148.4 )
+transform/pos = Vector2( 231.2, 221.2 )
 
 [node name="pin1413" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 384.8, 58.4 )
+transform/pos = Vector2( 261.2, 116.2 )
 
 [node name="pin1415" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 219.8, 148.4 )
+transform/pos = Vector2( 216.2, 191.2 )
 
 [node name="pin1412" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 279.8, 58.4 )
+transform/pos = Vector2( 231.2, 161.2 )
 
 [node name="pin149" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 399.8, 448.4 )
+transform/pos = Vector2( 351.2, 521.2 )
 
 [node name="pin1410" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 279.8, 433.4 )
+transform/pos = Vector2( 321.2, 641.2 )
 
 [node name="pin1411" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 159.8, 58.4 )
+transform/pos = Vector2( 201.2, 116.2 )
 
 [node name="pin145" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 339.8, 343.4 )
+transform/pos = Vector2( 261.2, 476.2 )
 
 [node name="pin144" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 414.8, 253.4 )
+transform/pos = Vector2( 396.2, 446.2 )
 
 [node name="pin146" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 219.8, 343.4 )
+transform/pos = Vector2( 186.2, 401.2 )
 
 [node name="pin147" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 144.8, 448.4 )
+transform/pos = Vector2( 111.2, 521.2 )
 
 [node name="pin148" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 399.8, 448.4 )
+transform/pos = Vector2( 231.2, 566.2 )
 
 [node name="pin143" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 279.8, 253.4 )
+transform/pos = Vector2( 246.2, 326.2 )
 
 [node name="pin15" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 159.8, 253.4 )
+transform/pos = Vector2( 306.2, 266.2 )
 
 [node name="pin15 2" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 158.4, 387 )
+transform/pos = Vector2( 51.2, 416.2 )
 
 [node name="pin15 3" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 278.4, 387 )
+transform/pos = Vector2( 201.2, 476.2 )
 
 [node name="pin15 4" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 413.4, 387 )
+transform/pos = Vector2( 426.2, 416.2 )
 
 [node name="pin15 5" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 338.4, 477 )
+transform/pos = Vector2( 141.2, 641.2 )
 
 [node name="pin15 6" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 218.4, 477 )
+transform/pos = Vector2( 276.2, 596.2 )
 
 [node name="pin15 7" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 143.4, 582 )
+transform/pos = Vector2( 51.2, 686.2 )
 
 [node name="pin15 8" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 398.4, 582 )
+transform/pos = Vector2( 261.2, 641.2 )
 
 [node name="pin15 9" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 398.4, 582 )
+transform/pos = Vector2( 411.2, 686.2 )
 
 [node name="pin15 10" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 278.4, 567 )
+transform/pos = Vector2( 171.2, 686.2 )
 
 [node name="pin15 11" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 158.4, 192 )
+transform/pos = Vector2( 216.2, 326.2 )
 
 [node name="pin15 12" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 278.4, 192 )
+transform/pos = Vector2( 156.2, 266.2 )
 
 [node name="pin15 13" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 383.4, 192 )
+transform/pos = Vector2( 81.2, 446.2 )
 
 [node name="pin15 14" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 323.4, 282 )
+transform/pos = Vector2( 291.2, 386.2 )
 
 [node name="pin15 15" parent="pins" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 218.4, 282 )
+transform/pos = Vector2( 231.2, 311.2 )
 
 [node name="scoring" type="Node2D" parent="."]
 
