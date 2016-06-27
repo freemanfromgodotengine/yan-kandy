@@ -15,16 +15,16 @@
 custom_solver_bias = 0.0
 radius = 14.9444
 
-[sub_resource type="ConcavePolygonShape2D" id=5]
+[sub_resource type="ConcavePolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 546, -15, 546, 495, 546, 495, 546, 496.426, 36.0593, 496.426, 36.0593, 465, 111, 465, 111, 465, 538.5, 465, 538.5, 405, 538.5, 405, 538.5, 381.833, 480.957, 381.833, 480.957, 363.92, 481.953, 363.92, 481.953, 375, 538.5, 375, 538.5, 330, 538.5, 330, 538.5, 317.481, 499.865, 317.481, 499.865, 304.876, 481.289, 304.876, 481.289, 296.251, 483.611, 296.251, 483.611, 300.779, 528.811, 300.779, 528.811, 247.822, 530.714, 247.822, 530.714, 245.831, 508.821, 245.831, 508.821, 255.783, 504.841, 255.783, 504.841, 270.378, 496.216, 270.378, 496.216, 271.041, 483.943, 271.041, 483.943, 263.744, 474.655, 263.744, 474.655, 253.792, 475.65, 253.792, 475.65, 255.783, 483.943, 255.783, 483.943, 255, 493.5, 255, 493.5, 210, 493.5, 210, 493.5, 210.007, 483.943, 210.007, 483.943, 213.987, 475.65, 213.987, 475.65, 204.699, 473.992, 204.699, 473.992, 193.421, 483.279, 193.421, 483.279, 195.411, 491.904, 195.411, 491.904, 210.335, 505.503, 210.335, 505.503, 210.67, 531.046, 210.67, 531.046, 180, 531, 180, 531, 180, 516, 180, 516, 180, 478.5, 180, 478.5, 165, 486, 165, 486, 150, 508.5, 150, 508.5, 150, 538.5, 150, 538.5, 105, 538.5, 105, 538.5, 105, 486, 105, 486, 75, 501, 75, 501, 75, 538.5, 75, 538.5, 45, 538.5, 45, 538.5, 15, 538.5, 15, 538.5, 15, 103.5 )
+segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 546, -15, 546, 495, 546, 495, 546, 496.426, 36.0593, 496.426, 36.0593, 465, 111, 465, 111, 465, 538.5, 465, 538.5, 405, 538.5, 405, 538.5, 381.833, 480.957, 381.833, 480.957, 363.92, 481.953, 363.92, 481.953, 375, 538.5, 375, 538.5, 330, 538.5, 330, 538.5, 317.481, 499.865, 317.481, 499.865, 304.876, 481.289, 304.876, 481.289, 296.251, 483.611, 296.251, 483.611, 300.779, 528.811, 300.779, 528.811, 247.822, 530.714, 247.822, 530.714, 245.831, 508.821, 245.831, 508.821, 255.783, 504.841, 255.783, 504.841, 270.378, 496.216, 270.378, 496.216, 271.041, 483.943, 271.041, 483.943, 263.744, 474.655, 263.744, 474.655, 255, 478.5, 255, 478.5, 255, 493.5, 255, 493.5, 210, 493.5, 210, 493.5, 210, 478.5, 210, 478.5, 204.699, 473.992, 204.699, 473.992, 193.421, 483.279, 193.421, 483.279, 195.411, 491.904, 195.411, 491.904, 210.335, 505.503, 210.335, 505.503, 210.67, 531.046, 210.67, 531.046, 180, 531, 180, 531, 180, 516, 180, 516, 180, 478.5, 180, 478.5, 165, 486, 165, 486, 150, 508.5, 150, 508.5, 150, 538.5, 150, 538.5, 105, 538.5, 105, 538.5, 105, 486, 105, 486, 75, 501, 75, 501, 75, 538.5, 75, 538.5, 45, 538.5, 45, 538.5, 15, 538.5, 15, 538.5, 15, 103.5 )
 
-[sub_resource type="SampleLibrary" id=4]
+[sub_resource type="SampleLibrary" id=3]
 
 samples/thunk = { "db":0.0, "pitch":1.5, "sample":ExtResource( 5 ) }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 23.028, 19.5325 )
@@ -33,9 +33,17 @@ extents = Vector2( 23.028, 19.5325 )
 
 transform/pos = Vector2( 0, 165 )
 
-[node name="ball" type="RigidBody2D" parent="."]
+[node name="ball_wrapper" type="Area2D" parent="."]
 
-transform/pos = Vector2( 242, -118 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="ball" type="RigidBody2D" parent="ball_wrapper"]
+
+transform/pos = Vector2( 242, -117 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1, 1.99999 )
@@ -44,9 +52,9 @@ collision/layers = 1
 collision/mask = 1
 mode = 0
 mass = 0.01
-friction = 0.5
+friction = 0.25
 bounce = 0.0
-gravity_scale = 5.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -56,25 +64,25 @@ can_sleep = true
 velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
-damp_override/angular = 6.0
+damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-__meta__ = { "_edit_group_":true }
+__meta__ = { "_edit_group_":true, "_editor_collapsed":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball_wrapper/ball"]
 
 transform/pos = Vector2( 1, 1.99999 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Sprite" type="Sprite" parent="ball"]
+[node name="Sprite" type="Sprite" parent="ball_wrapper/ball"]
 
 transform/pos = Vector2( 0.999992, 2 )
 transform/scale = Vector2( 0.614436, 0.615734 )
 z/z = 1
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="ball"]
+[node name="Camera2D" type="Camera2D" parent="ball_wrapper/ball"]
 
 z/z = 1
 anchor_mode = 1
@@ -100,8 +108,8 @@ __meta__ = { "_edit_lock_":true }
 transform/pos = Vector2( 15, -52 )
 z/z = -1
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, -0, 0, 2, 0, -185 )
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 2, 0, -185 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -117,11 +125,11 @@ contact_monitor = true
 sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
+velocity/angular = -5.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 3 )
-__meta__ = { "_edit_group_":true, "_edit_lock_":true }
+__meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
 
 [node name="TextureFrame" type="TextureFrame" parent="box"]
 
@@ -142,7 +150,7 @@ visibility/opacity = 0.502013
 transform/pos = Vector2( 0, -185 )
 transform/scale = Vector2( 1, 2 )
 build_mode = 1
-polygon = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15, 546, 495, 546, 496.426, 36.0593, 465, 111, 465, 538.5, 405, 538.5, 381.833, 480.957, 363.92, 481.953, 375, 538.5, 330, 538.5, 317.481, 499.865, 304.876, 481.289, 296.251, 483.611, 300.779, 528.811, 247.822, 530.714, 245.831, 508.821, 255.783, 504.841, 270.378, 496.216, 271.041, 483.943, 263.744, 474.655, 253.792, 475.65, 255.783, 483.943, 255, 493.5, 210, 493.5, 210.007, 483.943, 213.987, 475.65, 204.699, 473.992, 193.421, 483.279, 195.411, 491.904, 210.335, 505.503, 210.67, 531.046, 180, 531, 180, 516, 180, 478.5, 165, 486, 150, 508.5, 150, 538.5, 105, 538.5, 105, 486, 75, 501, 75, 538.5, 45, 538.5, 15, 538.5 )
+polygon = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15, 546, 495, 546, 496.426, 36.0593, 465, 111, 465, 538.5, 405, 538.5, 381.833, 480.957, 363.92, 481.953, 375, 538.5, 330, 538.5, 317.481, 499.865, 304.876, 481.289, 296.251, 483.611, 300.779, 528.811, 247.822, 530.714, 245.831, 508.821, 255.783, 504.841, 270.378, 496.216, 271.041, 483.943, 263.744, 474.655, 255, 478.5, 255, 493.5, 210, 493.5, 210, 478.5, 204.699, 473.992, 193.421, 483.279, 195.411, 491.904, 210.335, 505.503, 210.67, 531.046, 180, 531, 180, 516, 180, 478.5, 165, 486, 150, 508.5, 150, 538.5, 105, 538.5, 105, 486, 75, 501, 75, 538.5, 45, 538.5, 15, 538.5 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -154,7 +162,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 10
-config/samples = SubResource( 4 )
+config/samples = SubResource( 3 )
 config/pitch_random = -0.02
 
 [node name="pins" type="Node2D" parent="."]
@@ -389,15 +397,89 @@ transform/pos = Vector2( 291.2, 386.2 )
 
 transform/pos = Vector2( 231.2, 311.2 )
 
+[node name="pin1416" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 66.2, 236.2 )
+
+[node name="pin1416 2" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 51.2, 326.2 )
+
+[node name="pin159" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 426.2, 326.2 )
+
+[node name="pin1416 3" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 411.2, 236.2 )
+
+[node name="pin156" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 141.2, 146.2 )
+
+[node name="pin1416 4" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 321.2, 146.2 )
+
+[node name="pin1514" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 36.2, 536.2 )
+
+[node name="pin1515" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 426.2, 536.2 )
+
+[node name="pin1517" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 381.2, 731.2 )
+
+[node name="pin1518" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 321.2, 731.2 )
+
+[node name="pin1519" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 261.2, 731.2 )
+
+[node name="pin1520" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 201.2, 731.2 )
+
+[node name="pin1521" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 141.2, 731.2 )
+
+[node name="pin1522" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 81.2, 731.2 )
+
+[node name="pin1523" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 66.2, 776.2 )
+
+[node name="pin1524" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 411.2, 776.2 )
+
+[node name="pin1525" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 321.2, 551.2 )
+
+[node name="pin1526" parent="pins" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 141.2, 551.2 )
+damp_override/angular = 80.0
+
 [node name="scoring" type="Node2D" parent="."]
 
 transform/pos = Vector2( 111.5, 998.5 )
 transform/scale = Vector2( 1.67188, 1.20312 )
+__meta__ = { "_editor_collapsed":true }
 
 [node name="20 points" type="Area2D" parent="scoring"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.79439, -5.81818 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -410,7 +492,7 @@ __meta__ = { "_editor_collapsed":true }
 [node name="20points" type="CollisionShape2D" parent="scoring/20 points"]
 
 transform/pos = Vector2( 1.79439, -5.81818 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 

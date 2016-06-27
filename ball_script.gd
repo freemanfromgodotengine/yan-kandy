@@ -33,8 +33,8 @@ func _fixed_process(delta):
 	if Input.is_action_pressed("ui_down") and released == false:
 			print("Release!")
 			released = true
-			set_mass(80)
-			set_gravity_scale(6)
+			set_mass(85)
+			set_gravity_scale(8)
 			direction += Vector2(0,0.01)
 	
 	if Input.is_action_pressed("ui_select"):
