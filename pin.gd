@@ -9,8 +9,11 @@ extends RigidBody2D
 
 func _on_pin_body_enter( body ):
 	print("touched pin")
+	randomize()
+	var pinsound_random = randi()%8+1
 	#get_node("sfx").set_pitch_scale(2, 4)
-	get_node("sfx").play("pinsound")
+	print(pinsound_random)
+	get_node("sfx").play("pin_sound_" + str(pinsound_random))
 	pass # replace with function body
 
 func _ready():
