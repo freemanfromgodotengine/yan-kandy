@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://ball_script.gd" type="Script" id=1]
 [ext_resource path="res://sprite_candyball.png" type="Texture" id=2]
-[ext_resource path="res://box.gd" type="Script" id=3]
-[ext_resource path="res://wooden-box-bg.png" type="Texture" id=4]
-[ext_resource path="res://thunk.wav" type="Sample" id=5]
-[ext_resource path="res://pin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://20points.gd" type="Script" id=7]
-[ext_resource path="res://sprite_yan_head.png" type="Texture" id=8]
-[ext_resource path="res://sprite_yan_jaw.png" type="Texture" id=9]
-[ext_resource path="res://soundtrack.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprite_candyball_shadow.png" type="Texture" id=3]
+[ext_resource path="res://sprite_candyball_shine.png" type="Texture" id=4]
+[ext_resource path="res://box.gd" type="Script" id=5]
+[ext_resource path="res://wooden-box-bg.png" type="Texture" id=6]
+[ext_resource path="res://thunk.wav" type="Sample" id=7]
+[ext_resource path="res://pin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://20points.gd" type="Script" id=9]
+[ext_resource path="res://sprite_yan_head.png" type="Texture" id=10]
+[ext_resource path="res://sprite_yan_jaw.png" type="Texture" id=11]
+[ext_resource path="res://soundtrack.ogg" type="AudioStream" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -23,7 +25,7 @@ segments = Vector2Array( 15, 103.5, -15.1861, 33.6761, -15.1861, 33.6761, -15, 5
 
 [sub_resource type="SampleLibrary" id=3]
 
-samples/thunk = { "db":0.0, "pitch":1.5, "sample":ExtResource( 5 ) }
+samples/thunk = { "db":0.0, "pitch":1.5, "sample":ExtResource( 7 ) }
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -34,15 +36,7 @@ extents = Vector2( 23.028, 19.5325 )
 
 transform/pos = Vector2( 0, 165 )
 
-[node name="ball_wrapper" type="Area2D" parent="."]
-
-input/pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="ball" type="RigidBody2D" parent="ball_wrapper"]
+[node name="ball" type="RigidBody2D" parent="."]
 
 transform/pos = Vector2( 242, -117 )
 input/pickable = false
@@ -67,23 +61,54 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-__meta__ = { "_edit_group_":true, "_editor_collapsed":true }
+__meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ball_wrapper/ball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
 
 transform/pos = Vector2( 1, 1.99999 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Sprite" type="Sprite" parent="ball_wrapper/ball"]
+[node name="Sprite" type="Sprite" parent="ball"]
 
 transform/pos = Vector2( 0.999992, 2 )
 transform/scale = Vector2( 0.614436, 0.615734 )
 z/z = 1
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="ball_wrapper/ball"]
+[node name="ball_effects" type="RigidBody2D" parent="ball/Sprite"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+mode = 1
+mass = 0.00102041
+friction = 0.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="shadow" type="Sprite" parent="ball/Sprite/ball_effects"]
+
+z/z = -1
+texture = ExtResource( 3 )
+
+[node name="lights" type="Sprite" parent="ball/Sprite/ball_effects"]
+
+visibility/blend_mode = 1
+texture = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="ball"]
 
 z/z = 1
 anchor_mode = 1
@@ -129,7 +154,7 @@ velocity/linear = Vector2( 0, 0 )
 velocity/angular = -5.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 5 )
 __meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
 
 [node name="TextureFrame" type="TextureFrame" parent="box"]
@@ -142,7 +167,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 expand = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box"]
@@ -171,7 +196,7 @@ config/pitch_random = -0.02
 transform/pos = Vector2( 15, -65 )
 __meta__ = { "_editor_collapsed":true }
 
-[node name="pin" parent="pins" instance=ExtResource( 6 )]
+[node name="pin" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 156.2, 296.2 )
 
@@ -179,295 +204,295 @@ transform/pos = Vector2( 156.2, 296.2 )
 
 config/pitch_random = -0.05
 
-[node name="pin1" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 262, 282 )
 
-[node name="pin2" parent="pins" instance=ExtResource( 6 )]
+[node name="pin2" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 126.2, 326.2 )
 
-[node name="pin3" parent="pins" instance=ExtResource( 6 )]
+[node name="pin3" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 276.2, 401.2 )
 
-[node name="pin4" parent="pins" instance=ExtResource( 6 )]
+[node name="pin4" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 371.2 )
 
-[node name="pin5" parent="pins" instance=ExtResource( 6 )]
+[node name="pin5" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 142, 477 )
 
-[node name="pin6" parent="pins" instance=ExtResource( 6 )]
+[node name="pin6" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 186.2, 521.2 )
 
-[node name="pin7" parent="pins" instance=ExtResource( 6 )]
+[node name="pin7" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 276.2, 521.2 )
 
-[node name="pin8" parent="pins" instance=ExtResource( 6 )]
+[node name="pin8" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 186.2, 596.2 )
 
-[node name="pin9" parent="pins" instance=ExtResource( 6 )]
+[node name="pin9" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 171.2, 596.2 )
 
-[node name="pin10" parent="pins" instance=ExtResource( 6 )]
+[node name="pin10" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 111.2, 686.2 )
 
-[node name="pin11" parent="pins" instance=ExtResource( 6 )]
+[node name="pin11" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 686.2 )
 
-[node name="pin12" parent="pins" instance=ExtResource( 6 )]
+[node name="pin12" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 351.2, 686.2 )
 
-[node name="pin13" parent="pins" instance=ExtResource( 6 )]
+[node name="pin13" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 291.2, 686.2 )
 
-[node name="pin14" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 171.2, 386.2 )
 
-[node name="pin14 2" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 2" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 261.2, 416.2 )
 
-[node name="pin14 3" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 3" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 336.2, 326.2 )
 
-[node name="pin14 4" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 4" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 336.2, 476.2 )
 
-[node name="pin14 5" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 5" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 416.2 )
 
-[node name="pin14 6" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 6" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 381.2, 641.2 )
 
-[node name="pin14 7" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 7" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 291.2, 596.2 )
 
-[node name="pin14 8" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 8" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 81.2, 641.2 )
 
-[node name="pin14 9" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 9" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 641.2 )
 
-[node name="pin14 10" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 10" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 111.2, 236.2 )
 
-[node name="pin14 11" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 11" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 246.2, 191.2 )
 
-[node name="pin14 12" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 12" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 366.2, 236.2 )
 
-[node name="pin14 13" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 13" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 306.2, 296.2 )
 
-[node name="pin14 14" parent="pins" instance=ExtResource( 6 )]
+[node name="pin14 14" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 281.2 )
 
-[node name="pin1414" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1414" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 221.2 )
 
-[node name="pin1413" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1413" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 261.2, 116.2 )
 
-[node name="pin1415" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1415" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 216.2, 191.2 )
 
-[node name="pin1412" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1412" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 161.2 )
 
-[node name="pin149" parent="pins" instance=ExtResource( 6 )]
+[node name="pin149" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 351.2, 521.2 )
 
-[node name="pin1410" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1410" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 321.2, 641.2 )
 
-[node name="pin1411" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1411" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 116.2 )
 
-[node name="pin145" parent="pins" instance=ExtResource( 6 )]
+[node name="pin145" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 261.2, 476.2 )
 
-[node name="pin144" parent="pins" instance=ExtResource( 6 )]
+[node name="pin144" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 396.2, 446.2 )
 
-[node name="pin146" parent="pins" instance=ExtResource( 6 )]
+[node name="pin146" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 186.2, 401.2 )
 
-[node name="pin147" parent="pins" instance=ExtResource( 6 )]
+[node name="pin147" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 111.2, 521.2 )
 
-[node name="pin148" parent="pins" instance=ExtResource( 6 )]
+[node name="pin148" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 566.2 )
 
-[node name="pin143" parent="pins" instance=ExtResource( 6 )]
+[node name="pin143" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 246.2, 326.2 )
 
-[node name="pin15" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 306.2, 266.2 )
 
-[node name="pin15 2" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 2" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 51.2, 416.2 )
 
-[node name="pin15 3" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 3" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 476.2 )
 
-[node name="pin15 4" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 4" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 426.2, 416.2 )
 
-[node name="pin15 5" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 5" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 141.2, 641.2 )
 
-[node name="pin15 6" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 6" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 276.2, 596.2 )
 
-[node name="pin15 7" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 7" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 51.2, 686.2 )
 
-[node name="pin15 8" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 8" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 261.2, 641.2 )
 
-[node name="pin15 9" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 9" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 411.2, 686.2 )
 
-[node name="pin15 10" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 10" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 171.2, 686.2 )
 
-[node name="pin15 11" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 11" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 216.2, 326.2 )
 
-[node name="pin15 12" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 12" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 156.2, 266.2 )
 
-[node name="pin15 13" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 13" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 81.2, 446.2 )
 
-[node name="pin15 14" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 14" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 291.2, 386.2 )
 
-[node name="pin15 15" parent="pins" instance=ExtResource( 6 )]
+[node name="pin15 15" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 231.2, 311.2 )
 
-[node name="pin1416" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1416" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 66.2, 236.2 )
 
-[node name="pin1416 2" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1416 2" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 51.2, 326.2 )
 
-[node name="pin159" parent="pins" instance=ExtResource( 6 )]
+[node name="pin159" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 426.2, 326.2 )
 
-[node name="pin1416 3" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1416 3" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 411.2, 236.2 )
 
-[node name="pin156" parent="pins" instance=ExtResource( 6 )]
+[node name="pin156" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 141.2, 146.2 )
 
-[node name="pin1416 4" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1416 4" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 321.2, 146.2 )
 
-[node name="pin1514" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1514" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 36.2, 536.2 )
 
-[node name="pin1515" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1515" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 426.2, 536.2 )
 
-[node name="pin1517" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1517" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 381.2, 731.2 )
 
-[node name="pin1518" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1518" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 321.2, 731.2 )
 
-[node name="pin1519" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1519" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 261.2, 731.2 )
 
-[node name="pin1520" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1520" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 201.2, 731.2 )
 
-[node name="pin1521" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1521" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 141.2, 731.2 )
 
-[node name="pin1522" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1522" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 81.2, 731.2 )
 
-[node name="pin1523" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1523" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 66.2, 776.2 )
 
-[node name="pin1524" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1524" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 411.2, 776.2 )
 
-[node name="pin1525" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1525" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 321.2, 551.2 )
 
-[node name="pin1526" parent="pins" instance=ExtResource( 6 )]
+[node name="pin1526" parent="pins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 141.2, 551.2 )
 damp_override/angular = 80.0
@@ -488,7 +513,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 7 )
+script/script = ExtResource( 9 )
 __meta__ = { "_editor_collapsed":true }
 
 [node name="20points" type="CollisionShape2D" parent="scoring/20 points"]
@@ -529,14 +554,14 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="tex_yan_jaw" type="Sprite" parent="yan_head/tex_yan_head"]
 
 transform/pos = Vector2( 64.0153, 53.5946 )
 z/z = 1
 z/relative = false
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="."]
 
@@ -554,7 +579,7 @@ max_lines_visible = -1
 
 [node name="soundtrack" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 12 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
