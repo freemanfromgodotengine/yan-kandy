@@ -37,16 +37,13 @@ func _fixed_process(delta):
 			set_gravity_scale(8)
 			direction += Vector2(0,0.01)
 	
-	if Input.is_action_pressed("ui_select"):
-		get_tree().reload_current_scene()
-
-	
 	var variance = Vector2(0, 350)
 	var ballpos = self.get_pos()
 	if ballpos > self.get_pos():
 		get_node("Camera2D").set_pos(ballpos + variance)
 	
 	self.set_pos(ballpos + direction)
+	get_node("../ball_effects").set_pos(ballpos)
 
 func _ready():
 	# Called every time the node is added to the scene.

@@ -5,19 +5,30 @@ extends RigidBody2D
 # var a=2
 # var b="textvar"
 
+func _ready():
+	pass
 
 
 func _on_pin_body_enter( body ):
 	print("touched pin")
-	randomize()
-	var pinsound_random = randi()%8+1
-	#get_node("sfx").set_pitch_scale(2, 4)
-	print(pinsound_random)
-	get_node("sfx").play("pin_sound_" + str(pinsound_random))
-	pass # replace with function body
+	
+	if is_in_group("box_area1"):
+		get_node("sfx").play("pin_sound_1")
+	
+	if is_in_group("box_area2"):
+		get_node("sfx").play("pin_sound_2")
+		
+	if is_in_group("box_area3"):
+		get_node("sfx").play("pin_sound_3")
+	
+	else:
+		#randomize()
+		#var pinsound_random = randi()%8+1
+		#print(pinsound_random)
+		#get_node("sfx").play("pin_sound_" + str(pinsound_random))
+		get_node("sfx").play("tin")
 
-func _ready():
-	pass
+
 
 
 

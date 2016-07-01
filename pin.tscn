@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://pin.gd" type="Script" id=1]
 [ext_resource path="res://pin.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://pin_sound_6.smp" type="Sample" id=8]
 [ext_resource path="res://pin_sound_7.smp" type="Sample" id=9]
 [ext_resource path="res://pin_sound_8.smp" type="Sample" id=10]
+[ext_resource path="res://235280__godowan__tin1.smp" type="Sample" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -19,14 +20,15 @@ height = 0.652353
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/pin_sound_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
-samples/pin_sound_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 samples/pin_sound_4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/pin_sound_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/pin_sound_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 samples/pin_sound_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 samples/pin_sound_6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-samples/pin_sound_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
 samples/pin_sound_8 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
+samples/pin_sound_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
 samples/pin_sound_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/tin = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
 
 [node name="pin" type="RigidBody2D"]
 
